@@ -34,6 +34,22 @@ public class Game{
 		}
 	}
 	
+	public void fillField(){
+		int direction;
+		
+		for(int i=0; i<ONEDECK; i++){
+			
+		Ship s = new Ship(1);
+		s.setX(Math.random(field[1].length))
+		s.setY(Math.random(field.length))
+		if(s.getDecks>1){
+			direction = Math.random() * 
+		for(int j=1; j<s.getDecks; j++){
+			
+		}
+		}
+		}
+	}
 	public static void main(String[] args){
 		Game g = new Game();
 		g.createField();
@@ -77,21 +93,32 @@ public class Deck{
 public class Ship{
 	
 private int decks;
+private int x;
+private int y;
 
-Ship(String type){
-	if(type = "ONEDECK"){
-		decks = 1;
-	}
-	if(type = "TWODECK"){
-		decks = 2;
-	}
-	if(type = "THREEDECK"){
-		decks = 3;
-	}
-	if(type = "FOURDECK"){
-		decks = 4;
-	}
+Ship(int decks){
+	this.decks = decks;
 	
+}
+
+public int getDecks(){
+	return decks;
+}
+
+public void setX(int x){
+	this.x = x;
+}
+
+public void setY(int y){
+	this.y = y;
+}
+
+public int getX(){
+	return x;
+}
+
+public int getY(){
+	return y;
 }
 }
 
