@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Game{
+public class Game implements Display{
 	
 	private final int ONEDECK = 4;
 	private final int TWODECK = 3;
@@ -13,6 +13,9 @@ public class Game{
 	String[][] field = new String[10][10];
 	ArrayList<Ship> ships = new ArrayList<Ship>();
 	ArrayList<Deck> occupied = new ArrayList<Deck>();
+	
+	
+	
 	public void createField(){
 		for(int i=0; i<field.length; i++){
 			
@@ -24,7 +27,7 @@ public class Game{
 		}
 	}
 	
-	public void printField(){
+	public void drawBoard(){
 		System.out.print(" " + "\t");
 		for(int h=0; h<heading.length; h++){
 		System.out.print(heading[h]);
