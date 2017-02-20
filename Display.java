@@ -1,6 +1,6 @@
 public interface Display(){
 
-public void drawBoard();
+ void drawBoard();
 
 //public void redrawBoard();
 
