@@ -89,6 +89,14 @@ public class Cell{
 	String shape;
 	
 	Cell(String type){
+		changeTo(type);
+	}
+	
+	public String getShape(){
+		return shape;
+	}
+	
+	public void changeTo(String type){
 		if(type.equals("Deck")){
 			shape = "|p";
 		}
@@ -102,11 +110,6 @@ public class Cell{
 			shape = "|*";
 		}
 	}
-	
-	public String getShape(){
-		return shape;
-	}
-	
 	
 }
 
@@ -126,6 +129,10 @@ public class Deck{
 	
 	public int getY(){
 		return y;
+	}
+	
+	public hit(){
+		isHit = true;
 	}
 } 
 
