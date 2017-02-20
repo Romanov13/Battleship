@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Game implements Display{
+public class Game{
 	
 	private final int ONEDECK = 4;
 	private final int TWODECK = 3;
@@ -14,8 +14,6 @@ public class Game implements Display{
 	ArrayList<Ship> ships = new ArrayList<Ship>();
 	ArrayList<Deck> occupied = new ArrayList<Deck>();
 	
-	
-	
 	public void createField(){
 		for(int i=0; i<field.length; i++){
 			
@@ -27,7 +25,7 @@ public class Game implements Display{
 		}
 	}
 	
-	public void drawBoard(){
+	public void printField(){
 		System.out.print(" " + "\t");
 		for(int h=0; h<heading.length; h++){
 		System.out.print(heading[h]);
@@ -92,14 +90,6 @@ public class Cell{
 	String shape;
 	
 	Cell(String type){
-		changeTo(type);
-	}
-	
-	public String getShape(){
-		return shape;
-	}
-	
-	public void changeTo(String type){
 		if(type.equals("Deck")){
 			shape = "|p";
 		}
@@ -113,6 +103,11 @@ public class Cell{
 			shape = "|*";
 		}
 	}
+	
+	public String getShape(){
+		return shape;
+	}
+	
 	
 }
 
@@ -132,10 +127,6 @@ public class Deck{
 	
 	public int getY(){
 		return y;
-	}
-	
-	public hit(){
-		isHit = true;
 	}
 } 
 
