@@ -3,10 +3,14 @@ import java.io.*;
 
 public class Game {
 	
-	private final int ONEDECK = 4;
-	private final int TWODECK = 3;
-	private final int THREEDECK = 2;
-	private final int FOURDECK = 1;
+	private final int ONEDECK_SHIPS = 4;
+	private final int TWODECK_SHIPS = 3;
+	private final int THREEDECK_SHIPS = 2;
+	private final int FOURDECK_SHIPS = 1;
+	private final int ONE_DECK = 1;
+	private final int TWO_DECK = 2;
+	private final int THREE_DECK = 3;
+	private final int FOUR_DECK = 4;
 	private final int CLASSES = 4;
 	private final int SHIPS = 10;
 	private final int NUM_OF_PLAYERS = 2;
@@ -47,12 +51,20 @@ public class Game {
 	
 	public void fillField(){
 		
-		for(int i=0; i<ONEDECK; i++){
-			
+		for(int j=0; j<SHIPS; j++){
+			for(int i=0; i<ONEDECK_SHIPS; i++){
 		Ship s = new Ship(1, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
 		Cell c = new Cell("Deck");
 		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
+			ships.add(s);
 		}
+			for(int i=0; i<TWODECK_SHIPS; i++){
+		Ship s = new Ship(1, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
+		Cell c = new Cell("Deck");
+		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
+			ships.add(s);
+		}
+		d.shipsAreReady();
 	}
 	
 	public void shot(){
