@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Game implements Display{
+public class Game {
 	
 	private final int ONEDECK = 4;
 	private final int TWODECK = 3;
@@ -14,6 +14,7 @@ public class Game implements Display{
 	String[][] field = new String[10][10];
 	ArrayList<Ship> ships = new ArrayList<Ship>();
 	ArrayList<Cells> occupied = new ArrayList<Cells>();
+	ArrayList<Player> players = new ArrayList<Player>();
 	
 	
 	
@@ -28,7 +29,7 @@ public class Game implements Display{
 		}
 	}
 	
-	public void drawBoard(){
+	/*public void drawBoard(){
 		System.out.print(" " + "\t");
 		for(int h=0; h<heading.length; h++){
 		System.out.print(heading[h]);
@@ -42,6 +43,7 @@ public class Game implements Display{
 			System.out.println("|");
 		}
 	}
+	*/
 	
 	public void fillField(){
 		
@@ -77,12 +79,16 @@ public class Game implements Display{
 	// Start
 	public static void main(String[] args){
 		Game g = new Game();
+		Display d = new Display();
+		d.salute;
+		Player playerOne = new Player();
+		playerOne.setName(d.getPlayerName);
 		g.createField();
-		g.printField();
+		g.printField(field);
 		g.fillField();
-		g.printField();
+		g.printField(field);
 		g.shot();
-		g.printField();
+		g.printField(field);
 	}
 }
 
@@ -166,4 +172,16 @@ public int getDecks(){
 	return decks;
 }
 
+}
+
+public class Player{
+	String name;
+	
+	public void setName(String name){
+		this.name = name;
+	}
+	
+	public String getName(){
+		return name;
+	}
 }
