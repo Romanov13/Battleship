@@ -7,12 +7,13 @@ public class Game implements Display{
 	private final int TWODECK = 3;
 	private final int THREEDECK = 2;
 	private final int FOURDECK = 1;
+	private final int CLASSES = 4;
 	private final int SHIPS = 10;
 	private final int NUM_OF_PLAYERS = 2;
 	String[] heading = {" A", " B", " C", " D", " E", " F", " G", " H", " I", " J"};
 	String[][] field = new String[10][10];
 	ArrayList<Ship> ships = new ArrayList<Ship>();
-	ArrayList<Deck> occupied = new ArrayList<Deck>();
+	ArrayList<Cells> occupied = new ArrayList<Cells>();
 	
 	
 	
