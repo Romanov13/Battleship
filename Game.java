@@ -176,12 +176,16 @@ public int getDecks(){
 
 public class Player{
 	String name;
-	
+	static killCount = 0;
 	public void setName(String name){
 		this.name = name;
 	}
 	
 	public String getName(){
 		return name;
+	}
+	
+	public void killedShip(){
+	killCount+=1;
 	}
 }
