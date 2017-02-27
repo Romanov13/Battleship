@@ -23,4 +23,12 @@ System.out.println("Hello, sailor! What be yarrr name?");
 			}
 			System.out.println("|");
  }
+	 
+	 public void shipsAreReady(){
+		 System.out.println("Ships are ready!");
+	 }
+	 
+	 public void weHaveWinner(String name){
+		 System.out.println("The " + name + " is the last sailor swimming!");
+	 }
 }
