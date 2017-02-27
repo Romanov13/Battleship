@@ -53,17 +53,32 @@ public class Game {
 		
 		for(int j=0; j<SHIPS; j++){
 			for(int i=0; i<ONEDECK_SHIPS; i++){
-		Ship s = new Ship(1, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
+		Ship s = new Ship(ONE_DECK, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
 		Cell c = new Cell("Deck");
 		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
 			ships.add(s);
 		}
 			for(int i=0; i<TWODECK_SHIPS; i++){
-		Ship s = new Ship(1, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
+		Ship s = new Ship(TWO_DECK, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
 		Cell c = new Cell("Deck");
 		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
 			ships.add(s);
 		}
+			
+			for(int i=0; i<THREEDECK_SHIPS; i++){
+		Ship s = new Ship(THREE_DECK, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
+		Cell c = new Cell("Deck");
+		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
+			ships.add(s);
+		}
+			
+			for(int i=0; i<FOURDECK_SHIPS; i++){
+		Ship s = new Ship(FOUR_DECK, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
+		Cell c = new Cell("Deck");
+		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
+			ships.add(s);
+		}
+			
 		d.shipsAreReady();
 	}
 	
@@ -188,7 +203,7 @@ public int getDecks(){
 
 public class Player{
 	String name;
-	static killCount = 0;
+	int killCount = 0;
 	public void setName(String name){
 		this.name = name;
 	}
