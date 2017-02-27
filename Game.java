@@ -102,6 +102,10 @@ public class Game {
 	  field[(Character.getNumericValue(shot.charAt(1))+1)][Character.getNumericValue(shot.charAt(0))] = c.getShape();
 		
 	}
+		
+		public void endGame(){
+			d.weHaveWinner(players.get(0).getName());
+		}
 	
 	// Start
 	public static void main(String[] args){
