@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+
 public class Display{
 String[] heading = {" A", " B", " C", " D", " E", " F", " G", " H", " I", " J"};
 public void salute(){
@@ -23,6 +26,8 @@ System.out.println("Hello, sailor! What be yarrr name?");
 			}
 			System.out.println("|");
  }
+ }
+ 
 	 
 	 public void shipsAreReady(){
 		 System.out.println("Ships are ready!");
