@@ -20,6 +20,8 @@ public class Game {
 	ArrayList<Cell> occupied = new ArrayList<Cell>();
 	ArrayList<Player> players = new ArrayList<Player>();
 	
+	public Display d;
+	
 	
 	
 	public void createField(){
@@ -116,7 +118,7 @@ public class Game {
 	// Start
 	public static void main(String[] args){
 		Game g = new Game();
-		Display d = new Display();
+		d = new Display();
 		d.salute();
 		Player playerOne = new Player();
 		playerOne.setName(d.getPlayerName());
@@ -182,7 +184,6 @@ public class Deck{
 		isHit = true;
 	}
 } 
-
 import java.util.*;
 
 public class Ship{
