@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class Game {
-	
+
 	private final int ONEDECK_SHIPS = 4;
 	private final int TWODECK_SHIPS = 3;
 	private final int THREEDECK_SHIPS = 2;
@@ -108,7 +108,7 @@ public class Game {
 		//char[] sh = shot.toCharArraY();
 		Cell c = new Cell("Miss");
 		System.out.println(shot);
-	  field[(Character.getNumericValue(shot.charAt(1))+1)][Character.getNumericValue(shot.charAt(0))] = c.getShape();
+	  field[(Character.getNumericValue(shot.charAt(1))-1)][Character.getNumericValue(shot.charAt(0))] = c.getShape();
 		
 	}
 
