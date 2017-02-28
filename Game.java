@@ -20,7 +20,7 @@ public class Game {
 	ArrayList<Cell> occupied = new ArrayList<Cell>();
 	ArrayList<Player> players = new ArrayList<Player>();
 	
-	public Display d;
+	public Display d = new Display();
 	
 	
 	
@@ -85,8 +85,9 @@ public class Game {
 			ships.add(s);
 		}
 			
-		d.shipsAreReady();
+
 	}
+		d.shipsAreReady();
 	}
 	
 	
@@ -110,6 +111,11 @@ public class Game {
 	  field[(Character.getNumericValue(shot.charAt(1))+1)][Character.getNumericValue(shot.charAt(0))] = c.getShape();
 		
 	}
+
+	public void salute(){
+
+		d.salute();
+	}
 		
 		public void endGame(){
 			d.weHaveWinner(players.get(0).getName());
@@ -118,10 +124,10 @@ public class Game {
 	// Start
 	public static void main(String[] args){
 		Game g = new Game();
-		d = new Display();
-		d.salute();
+
+		g.salute();
 		Player playerOne = new Player();
-		playerOne.setName(d.getPlayerName());
+		playerOne.setName(g.getPlayerName());
 		g.createField();
 		g.printField(g.field);
 		g.fillField();
@@ -129,99 +135,11 @@ public class Game {
 		g.shot();
 		g.printField(g.field);
 	}
+
+	private String getPlayerName() {
+		return d.getPlayerName();
+	}
 }
 
 
-public class Cell{
-	
-	
-	String shape;
-	
-	Cell(String type){
-		changeTo(type);
-	}
-	
-	public String getShape(){
-		return shape;
-	}
-	
-	public void changeTo(String type){
-		if(type.equals("Deck")){
-			shape = "|p";
-		}
-		if(type.equals("Hit")){
-			shape = "|x";
-		}
-		if(type.equals("Empty")){
-			shape = "| ";
-		}
-		if(type.equals("Miss")){
-			shape = "|*";
-		}
-	}
-	
-}
 
-public class Deck{
-	private int x;
-	private int y;
-	boolean isHit = false;
-	
-	Deck(int x, int y){
-		this.x = x;
-		this.y = y;
-	}
-	
-	public int getX(){
-		return x;
-	}
-	
-	public int getY(){
-		return y;
-	}
-	
-	public void hit(){
-		isHit = true;
-	}
-} 
-import java.util.*;
-
-public class Ship{
-	
-	private char direction;
-private int decks;
-ArrayList<Deck> decksList = new ArrayList<Deck>();
-
-Ship(int decks, int x, int y){
-	this.decks = decks;
-	decksList.add(new Deck(x, y));
-	if (decks>1){
-//if (direction.equals('v')){
-	for(int i=1; i<decks; i++){
-		decksList.add(new Deck(x, y+i));
-	}
-//}
-	}
-}
-public int getDecks(){
-	return decks;
-}
-
-}
-
-
-public class Player{
-	String name;
-	int killCount = 0;
-	public void setName(String name){
-		this.name = name;
-	}
-	
-	public String getName(){
-		return name;
-	}
-	
-	public void killedShip(){
-	killCount+=1;
-	}
-}
