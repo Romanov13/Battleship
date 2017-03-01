@@ -16,7 +16,9 @@ public class Deck{
 		return y;
 	}
 
-	public void hit(){
+	public String hit(){
 		isHit = true;
+		String status = "Hit";
+		return status;
 	}
 }
