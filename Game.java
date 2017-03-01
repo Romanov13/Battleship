@@ -66,7 +66,7 @@ public class Game {
 	}
 	
 	public void makeShips(int class, int decks){
-		for(int i=0; i<decks; i++){
+		for(int i=0; i<class; i++){
 		Ship s = new Ship(decks, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
 		Cell c = new Cell("Deck");
 		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
