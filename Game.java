@@ -57,37 +57,21 @@ public class Game {
 	
 	public void fillField(){
 		
-		for(int j=0; j<SHIPS; j++){
-			for(int i=0; i<ONEDECK_SHIPS; i++){
-		Ship s = new Ship(ONE_DECK, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
-		Cell c = new Cell("Deck");
-		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
-			ships.add(s);
-		}
-			for(int i=0; i<TWODECK_SHIPS; i++){
-		Ship s = new Ship(TWO_DECK, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
-		Cell c = new Cell("Deck");
-		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
-			ships.add(s);
-		}
-			
-			for(int i=0; i<THREEDECK_SHIPS; i++){
-		Ship s = new Ship(THREE_DECK, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
-		Cell c = new Cell("Deck");
-		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
-			ships.add(s);
-		}
-			
-			for(int i=0; i<FOURDECK_SHIPS; i++){
-		Ship s = new Ship(FOUR_DECK, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
-		Cell c = new Cell("Deck");
-		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
-			ships.add(s);
-		}
-			
-
-	}
+		makeShips(ONEDECK_SHIPS, ONE_DECK);
+		makeShips(TWODECK_SHIPS, TWO_DECK);
+		makeShips(THREEDECK_SHIPS, THREE_DECK);
+		makeShips(FOURDECK_SHIPS, FOUR_DECK);
+		
 		d.shipsAreReady();
+	}
+	
+	public void makeShips(int class, int decks){
+		for(int i=0; i<decks; i++){
+		Ship s = new Ship(decks, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
+		Cell c = new Cell("Deck");
+		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
+			ships.add(s);
+		}
 	}
 	
 	
