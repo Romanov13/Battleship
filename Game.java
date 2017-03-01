@@ -1,19 +1,26 @@
 import java.util.*;
 import java.io.*;
 
-public class Game implements Display{
-	
-	private final int ONEDECK = 4;
-	private final int TWODECK = 3;
-	private final int THREEDECK = 2;
-	private final int FOURDECK = 1;
+public class Game {
+
+	private final int ONEDECK_SHIPS = 4;
+	private final int TWODECK_SHIPS = 3;
+	private final int THREEDECK_SHIPS = 2;
+	private final int FOURDECK_SHIPS = 1;
+	private final int ONE_DECK = 1;
+	private final int TWO_DECK = 2;
+	private final int THREE_DECK = 3;
+	private final int FOUR_DECK = 4;
 	private final int CLASSES = 4;
 	private final int SHIPS = 10;
 	private final int NUM_OF_PLAYERS = 2;
 	String[] heading = {" A", " B", " C", " D", " E", " F", " G", " H", " I", " J"};
 	String[][] field = new String[10][10];
 	ArrayList<Ship> ships = new ArrayList<Ship>();
-	ArrayList<Cells> occupied = new ArrayList<Cells>();
+	ArrayList<Cell> occupied = new ArrayList<Cell>();
+	ArrayList<Player> players = new ArrayList<Player>();
+	
+	public Display d = new Display();
 	
 	
 	
@@ -28,7 +35,11 @@ public class Game implements Display{
 		}
 	}
 	
-	public void drawBoard(){
+	public void printField(String[][] field){
+	    d.printField(field);
+	}
+	
+	/*public void drawBoard(){
 		System.out.print(" " + "\t");
 		for(int h=0; h<heading.length; h++){
 		System.out.print(heading[h]);
@@ -42,16 +53,27 @@ public class Game implements Display{
 			System.out.println("|");
 		}
 	}
+	*/
 	
 	public void fillField(){
 		
-		for(int i=0; i<ONEDECK; i++){
-			
-		Ship s = new Ship(1, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
+		makeShips(ONEDECK_SHIPS, ONE_DECK);
+		makeShips(TWODECK_SHIPS, TWO_DECK);
+		makeShips(THREEDECK_SHIPS, THREE_DECK);
+		makeShips(FOURDECK_SHIPS, FOUR_DECK);
+		
+		d.shipsAreReady();
+	}
+	
+	public void makeShips(int class, int decks){
+		for(int i=0; i<class; i++){
+		Ship s = new Ship(decks, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
 		Cell c = new Cell("Deck");
 		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
+			ships.add(s);
 		}
 	}
+	
 	
 	public void shot(){
 		System.out.println("Shoot!");
@@ -70,100 +92,38 @@ public class Game implements Display{
 		//char[] sh = shot.toCharArraY();
 		Cell c = new Cell("Miss");
 		System.out.println(shot);
-	  field[(Character.getNumericValue(shot.charAt(1))+1)][Character.getNumericValue(shot.charAt(0))] = c.getShape();
+	  field[(Character.getNumericValue(shot.charAt(1))-1)][Character.getNumericValue(shot.charAt(0))] = c.getShape();
 		
 	}
+
+	public void salute(){
+
+		d.salute();
+	}
+		
+		public void endGame(){
+			d.weHaveWinner(players.get(0).getName());
+		}
 	
 	// Start
 	public static void main(String[] args){
 		Game g = new Game();
+
+		g.salute();
+		Player playerOne = new Player();
+		playerOne.setName(g.getPlayerName());
 		g.createField();
-		g.printField();
+		g.printField(g.field);
 		g.fillField();
-		g.printField();
+		g.printField(g.field);
 		g.shot();
-		g.printField();
+		g.printField(g.field);
+	}
+
+	private String getPlayerName() {
+		return d.getPlayerName();
 	}
 }
 
 
-public class Cell{
-	
-	
-	String shape;
-	
-	Cell(String type){
-		changeTo(type);
-	}
-	
-	public String getShape(){
-		return shape;
-	}
-	
-	public void changeTo(String type){
-		if(type.equals("Deck")){
-			shape = "|p";
-		}
-		if(type.equals("Hit")){
-			shape = "|x";
-		}
-		if(type.equals("Empty")){
-			shape = "| ";
-		}
-		if(type.equals("Miss")){
-			shape = "|*";
-		}
-	}
-	
-}
 
-public class Deck{
-	private int x;
-	private int y;
-	boolean isHit = false;
-	
-	Deck(int x, int y){
-		this.x = x;
-		this.y = y;
-	}
-	
-	public int getX(){
-		return x;
-	}
-	
-	public int getY(){
-		return y;
-	}
-	
-	public hit(){
-		isHit = true;
-	}
-} 
-
-import java.util.*;
-
-public class Ship{
-	
-	private char direction;
-private int decks;
-ArrayList<Deck> decksList = new ArrayList<Deck>();
-
-Ship(int decks, int x, int y){
-	this.decks = decks;
-	decksList.add(new Deck(x, y));
-	if (decks>1){
-if (direction.equals('v')){
-	for(int i=1; i<decks; i++){
-		deckList.add(new Deck(x, y+i));
-	}
-}
-	}
-}
-	
-
-
-public int getDecks(){
-	return decks;
-}
-
-}
