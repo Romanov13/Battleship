@@ -17,7 +17,7 @@ public class Game {
 	private final int NUM_OF_PLAYERS = 2;
 	
 
-	String[][] field = new String[10][10];
+	Cell[][] field = new Cell[10][10];
 	ArrayList<Ship> ships = new ArrayList<Ship>();
 	
 	ArrayList<Player> players = new ArrayList<Player>();
