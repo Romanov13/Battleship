@@ -31,13 +31,13 @@ public class Game {
 			
 			for(int j=0; j<field[i].length; j++){
 				Cell c = new Cell("Empty");
-				field [i][j] = c.getShape();
+				field [i][j] = с;
 			}
 			
 		}
 	}
 	
-	public void printField(String[][] field){
+	public void printField(Cell[][] field){
 	    d.printField(field);
 	}
 	
