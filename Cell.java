@@ -8,6 +8,11 @@ public class Cell{
 		d = null;
 		changeTo(type);
 	}
+	
+	Cell(){
+		d = null;
+		changeTo("Empty");
+	}
 
 	public String getShape(){
 		return shape;
