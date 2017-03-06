@@ -3,6 +3,7 @@ import java.io.*;
 
 public class Game {
 
+	// Game constants
 	private final int ONEDECK_SHIPS = 4;
 	private final int TWODECK_SHIPS = 3;
 	private final int THREEDECK_SHIPS = 2;
@@ -14,10 +15,11 @@ public class Game {
 	private final int CLASSES = 4;
 	private final int SHIPS = 10;
 	private final int NUM_OF_PLAYERS = 2;
-	String[] heading = {" A", " B", " C", " D", " E", " F", " G", " H", " I", " J"};
+	
+
 	String[][] field = new String[10][10];
 	ArrayList<Ship> ships = new ArrayList<Ship>();
-	ArrayList<Cell> occupied = new ArrayList<Cell>();
+	
 	ArrayList<Player> players = new ArrayList<Player>();
 	
 	public Display d = new Display();
