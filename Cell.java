@@ -2,8 +2,10 @@ public class Cell{
 
 
 	String shape;
+	Deck d;
 
 	Cell(String type){
+		d = null;
 		changeTo(type);
 	}
 
@@ -24,6 +26,15 @@ public class Cell{
 		if(type.equals("Miss")){
 			shape = "|*";
 		}
+	}
+	
+	public void shotAt(){
+	
+	if(d==null){
+	changeTo("Miss");	
+	} else {
+	changeTo(d.hit());
+	}
 	}
 
 }
