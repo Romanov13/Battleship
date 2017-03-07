@@ -30,7 +30,7 @@ public class Game {
 		for(int i=0; i<field.length; i++){
 			
 			for(int j=0; j<field[i].length; j++){
-				Cell c = new Cell("Empty");
+				Cell c = new Cell();
 				field [i][j] = с;
 			}
 			
@@ -67,11 +67,11 @@ public class Game {
 		d.shipsAreReady();
 	}
 	
-	public void makeShips(int class, int decks){
-		for(int i=0; i<class; i++){
+	public void makeShips(int shipClass, int decks){
+		for(int i=0; i<shipClass; i++){
 		Ship s = new Ship(decks, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
 		Cell c = new Cell("Deck");
-		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
+		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c;
 			ships.add(s);
 		}
 	}
@@ -92,9 +92,10 @@ public class Game {
 		shot = shot.replaceAll("[Ii]", "8");
 		shot = shot.replaceAll("[Jj]", "9");
 		//char[] sh = shot.toCharArraY();
-		Cell c = new Cell("Miss");
+		//Cell c = new Cell("Miss");
 		System.out.println(shot);
-	  field[(Character.getNumericValue(shot.charAt(1))-1)][Character.getNumericValue(shot.charAt(0))] = c.getShape();
+	  field[(Character.getNumericValue(shot.charAt(1))-1)][Character.getNumericValue(shot.charAt(0))].shotAt();
+		
 		
 	}
 
