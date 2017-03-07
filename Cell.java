@@ -3,20 +3,15 @@ public class Cell{
 
 	String shape;
 	Deck d;
-	int x;
-	int y;
+	
 
-	Cell(int x, int y, String type){
+	Cell(String type){
 		d = null;
-		this x=x;
-		this y=y;
 		 shape = type;
 	}
 	
-	Cell(int x, int y){
+	Cell(){
 		d = null;
-		this x=x;
-		this y=y;
 		 shape = "Empty";
 	}
 
