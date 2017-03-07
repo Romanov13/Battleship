@@ -6,39 +6,40 @@ public class Cell{
 
 	Cell(String type){
 		d = null;
-		changeTo(type);
+		 shape = type;
 	}
 	
 	Cell(){
 		d = null;
-		changeTo("Empty");
+		 shape = "Empty";
 	}
 
 	public String getShape(){
 		return shape;
 	}
 
-	public void changeTo(String type){
+	public void setShape(String type){
 		if(type.equals("Deck")){
-			shape = "|p";
+			shape = type;
 		}
 		if(type.equals("Hit")){
-			shape = "|x";
+			shape = type;
 		}
 		if(type.equals("Empty")){
-			shape = "| ";
+			shape = type;
 		}
 		if(type.equals("Miss")){
-			shape = "|*";
-		}
+			shape = type;
+		} else {shape = "Empty";
+		
 	}
 	
 	public void shotAt(){
 	
 	if(d==null){
-	changeTo("Miss");	
+	shape = "Miss";	
 	} else {
-	changeTo(d.hit());
+	shape = d.hit();
 	}
 	}
 
