@@ -22,20 +22,9 @@ public class Cell{
 		return shape;
 	}
 
-	public void setShape(String type){
-		if(type.equals("Deck")){
+	public void setShape(String type) {
+
 			shape = type;
-		}
-		if(type.equals("Hit")){
-			shape = type;
-		}
-		if(type.equals("Empty")){
-			shape = type;
-		}
-		if(type.equals("Miss")){
-			shape = type;
-		} else {shape = "Empty";
-		
 	}
 		
 
@@ -49,6 +38,12 @@ public class Cell{
 	}
 		shotAt = true;
 	} else {}
+	}
+
+	public void addDeck(Deck d){
+
+		this.d = d;
+		setShape("Deck");
 	}
 
 }

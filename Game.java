@@ -31,7 +31,7 @@ public class Game {
 			
 			for(int j=0; j<field[i].length; j++){
 				Cell c = new Cell();
-				field [i][j] = с;
+				field [i][j] = c;
 			}
 			
 		}
@@ -70,8 +70,9 @@ public class Game {
 	public void makeShips(int shipClass, int decks){
 		for(int i=0; i<shipClass; i++){
 		Ship s = new Ship(decks, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
-		Cell c = new Cell("Deck");
-		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c;
+		for(Deck d : s.decksList) {
+			field[d.getX()][d.getY()].addDeck(d);
+		}
 			ships.add(s);
 		}
 	}
@@ -121,6 +122,7 @@ public class Game {
 		g.printField(g.field);
 		g.shot();
 		g.printField(g.field);
+
 	}
 
 	private String getPlayerName() {

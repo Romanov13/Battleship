@@ -22,11 +22,11 @@ System.out.println("Hello, sailor! What be yarrr name?");
 		for(int i=0; i<field.length; i++){
 			System.out.print(i+1 + "\t");
 			for(int j=0; j<field[i].length; j++){
-				String s;
+				String s = null;
 				if(field[i][j].getShape().equals("Deck")){
 			s = "|p";
 		}
-				iffield[i][j].getShape().equals("Hit")){
+				if(field[i][j].getShape().equals("Hit")){
 			s = "|x";
 		}
 		if(field[i][j].getShape().equals("Empty")){
