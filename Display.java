@@ -13,7 +13,7 @@ System.out.println("Hello, sailor! What be yarrr name?");
   return playerName;
  }
  
- public void printField(String[][] field){
+ public void printField(Cell[][] field){
   System.out.print(" " + "\t");
 		for(int h=0; h<heading.length; h++){
 		System.out.print(heading[h]);
@@ -22,7 +22,20 @@ System.out.println("Hello, sailor! What be yarrr name?");
 		for(int i=0; i<field.length; i++){
 			System.out.print(i+1 + "\t");
 			for(int j=0; j<field[i].length; j++){
-				System.out.print(field[i][j]);
+				String s = null;
+				if(field[i][j].getShape().equals("Deck")){
+			s = "|p";
+		}
+				if(field[i][j].getShape().equals("Hit")){
+			s = "|x";
+		}
+		if(field[i][j].getShape().equals("Empty")){
+			s = "| ";
+		}
+		if(field[i][j].getShape().equals("Miss")){
+			s = "|*";
+		}
+				System.out.print(s);
 			}
 			System.out.println("|");
  }
