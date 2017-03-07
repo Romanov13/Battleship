@@ -1,11 +1,12 @@
 public class Deck{
 	private int x;
 	private int y;
-	boolean isHit = false;
+	boolean isHit;
 
 	Deck(int x, int y){
 		this.x = x;
 		this.y = y;
+		isHit = false;
 	}
 
 	public int getX(){
