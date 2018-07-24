@@ -1,42 +1,49 @@
-import java.util.*;import java.util.*;
+import java.util.*;
 
 public class GameLogic {
 
-    private static boolean manual;
-    private final int CLASSES = 4;
+	// GameLogic constants
+	private final int ONEDECK_SHIPS = 4;
+	private final int TWODECK_SHIPS = 3;
+	private final int THREEDECK_SHIPS = 2;
+	private final int FOURDECK_SHIPS = 1;
+	private final int ONE_DECK = 1;
+	private final int TWO_DECK = 2;
+	private final int THREE_DECK = 3;
+	private final int FOUR_DECK = 4;
+	private final int CLASSES = 4;
 	private final int SHIPS = 10;
 	private final int NUM_OF_PLAYERS = 2;
+	
+
+	String[][] field = new String[10][10];
 
 
-	private Cell[][] field = new Cell[10][10];
-	private boolean automode;
-
-
-	private ArrayList<Ship> getShips() {
+	public ArrayList<Ship> getShips() {
 		return ships;
 	}
 
-	private ArrayList<Ship> ships = new ArrayList<Ship>();
+	ArrayList<Ship> ships = new ArrayList<Ship>();
 	
-	private ArrayList<Player> players = new ArrayList<Player>();
+	ArrayList<Player> players = new ArrayList<Player>();
 	
-	private Display d = new Display();
+	public Display d = new Display();
 	
 	
 	
-	private Cell[][] createField(){
+	public void createField(){
 		for(int i=0; i<field.length; i++){
 			
 			for(int j=0; j<field[i].length; j++){
-				field [i][j] = Cell.EMPTY;
+				Cell c = new Cell("Empty");
+				field [i][j] = c.getShape();
 			}
 			
 		}
-		return field;
 	}
 	
-	private void printField(Cell[][] field1, Cell[][] field2){
-	    d.printField(field1, field2);
+	public void printField(String[][] field){
+	    d.printField(field);
 	}
 	
 	/*public void drawBoard(){
@@ -55,46 +62,84 @@ public class GameLogic {
 	}
 	*/
 	
+	public void fillField(){
+		
+		makeClassOfShips(ONEDECK_SHIPS, ONE_DECK);
+		makeClassOfShips(TWODECK_SHIPS, TWO_DECK);
+		makeClassOfShips(THREEDECK_SHIPS, THREE_DECK);
+		makeClassOfShips(FOURDECK_SHIPS, FOUR_DECK);
+		
+		d.shipsAreReady();
+	}
+	
+	public void makeClassOfShips(int classOfShip, int decks){
+		for(int i=0; i<classOfShip; i++){
+			Ship s = makeShipInBorder(decks);
+			while (checkForOverlay(s)){
+				s = makeShipInBorder(decks);
+			}
+			renderShip(s);
 
-	
-	
-	private void shot(){
-		// move to Display
-//		System.out.println("Shoot!");
-//		Scanner s = new Scanner(System.in);
-//		String shot = s.nextLine();
-//		shot = shot.replaceAll("[Aa]", "0");
-//		shot = shot.replaceAll("[Bb]", "1");
-//		shot = shot.replaceAll("[Cc]", "2");
-//		shot = shot.replaceAll("[Dd]", "3");
-//		shot = shot.replaceAll("[Ee]", "4");
-//		shot = shot.replaceAll("[Ff]", "5");
-//		shot = shot.replaceAll("[Gg]", "6");
-//		shot = shot.replaceAll("[Hh]", "7");
-//		shot = shot.replaceAll("[Ii]", "8");
-//		shot = shot.replaceAll("[Jj]", "9");
-//		//char[] sh = shot.toCharArraY();
-//		Cell c = new Cell("Miss");
-//		System.out.println(shot);
-//	  field[(Character.getNumericValue(shot.charAt(1))-1)][Character.getNumericValue(shot.charAt(0))] = c.getShape();
-//
+			ships.add(s);
+		}
 	}
 
-	private int generateRandom(int b){
-		return new Random().nextInt(b);
+	private void renderShip(Ship s) {
+		for(Deck d: s.decksList){
+			Cell c = new Cell("Deck");
+			field[d.getX()][d.getY()] = c.getShape();
+		}
 	}
 
-	private  void autoShoot(){
-		d.autoShoot();
-        int xToShoot = generateRandom(field.length);
-        int yToShoot = generateRandom(field[xToShoot].length);
-        if(field[xToShoot][yToShoot]==Cell.DECK){
-        	field[xToShoot][yToShoot] = Cell.HIT;
-		} else {field[yToShoot][xToShoot] = Cell.MISS;}
-		System.out.println("shot at :" + d.getXCoord(xToShoot) + ", " + d.getYCoord(yToShoot));
-    }
+	private boolean checkForOverlay(Ship s) {
+		return false;
+	}
 
-	private void salute(){
+	public void makeShipsManually(){
+
+	}
+
+	public Ship makeShipInBorder(int decks){
+		int xOfShip = generateRandom(field.length);
+		int yOfShip = generateRandom(field[1].length);
+		boolean vertical = new Random().nextBoolean();
+		if(vertical){
+			yOfShip = generateRandom(field[1].length - decks);
+		} else {
+			xOfShip = generateRandom((field.length - decks));
+		}
+		Ship s = new Ship(decks, xOfShip, yOfShip, vertical);
+		return s;
+	}
+
+	public int generateRandom(int b){
+		int r = new Random().nextInt(b);
+		return r;
+	}
+	
+	
+	public void shot(){
+		System.out.println("Shoot!");
+		Scanner s = new Scanner(System.in);
+		String shot = s.nextLine();
+		shot = shot.replaceAll("[Aa]", "0");
+		shot = shot.replaceAll("[Bb]", "1");
+		shot = shot.replaceAll("[Cc]", "2");
+		shot = shot.replaceAll("[Dd]", "3");
+		shot = shot.replaceAll("[Ee]", "4");
+		shot = shot.replaceAll("[Ff]", "5");
+		shot = shot.replaceAll("[Gg]", "6");
+		shot = shot.replaceAll("[Hh]", "7");
+		shot = shot.replaceAll("[Ii]", "8");
+		shot = shot.replaceAll("[Jj]", "9");
+		//char[] sh = shot.toCharArraY();
+		Cell c = new Cell("Miss");
+		System.out.println(shot);
+	  field[(Character.getNumericValue(shot.charAt(1))-1)][Character.getNumericValue(shot.charAt(0))] = c.getShape();
+		
+	}
+
+	public void salute(){
 
 		d.salute();
 	}
@@ -110,45 +155,24 @@ public class GameLogic {
 		g.salute();
 		Player playerOne = new Player();
 		playerOne.setName(g.getPlayerName());
-		g.players.add(playerOne);
-		g.requestMode();
-		Player playerTwo = new Player();
-		if(!g.automode){
-		playerTwo.setName(g.getPlayerName());}
-		else {playerTwo.setName("Computer");}
-		g.players.add(playerTwo);
-		g.players.get(0).setPlayerField(g.createField());
-		g.players.get(1).setPlayerField(g.createField());
-
-
-		g.printField(g.players.get(0).getField(), g.players.get(1).getField());
-		manual = false;
-        if (manual) {
-            playerOne.makeShipsManually();
-        } else {playerOne.fillField();
-        }
-        g.printField(playerOne.getField(), playerTwo.getField());
-//		for(Ship i: g.getShips()){
-//			System.out.println("Ship 1");
-//			for(Deck d: i.getDecksList()){
-//				System.out.println(d.getX()+1 + " " + d.getY()+1);
-//			}
-//		}
-		for (int i = 0; i<4;i++) {
-			g.autoShoot();
-			g.printField(g.field, g.players.get(1).getField());
-		}
-		g.printField(g.field, g.players.get(1).getField());
-	}
-
-	private void requestMode() {
-		automode = d.requestMode();
-
+		g.createField();
+		g.printField(g.field);
+		g.fillField();
+		g.printField(g.field);
+		for(Ship i: g.getShips()){
+			System.out.println("Ship 1");
+			for(Deck d: i.decksList){
+				System.out.println(d.getX()+1 + " " + d.getY()+1);
+			}
+		};
+		g.shot();
+		g.printField(g.field);
 	}
 
 	private String getPlayerName() {
 		return d.getPlayerName();
 	}
 }
+
 
 
