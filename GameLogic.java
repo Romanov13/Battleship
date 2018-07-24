@@ -1,9 +1,8 @@
 import java.util.*;
-import java.io.*;
 
-public class Game {
+public class GameLogic {
 
-	// Game constants
+	// GameLogic constants
 	private final int ONEDECK_SHIPS = 4;
 	private final int TWODECK_SHIPS = 3;
 	private final int THREEDECK_SHIPS = 2;
@@ -18,6 +17,12 @@ public class Game {
 	
 
 	String[][] field = new String[10][10];
+
+
+	public ArrayList<Ship> getShips() {
+		return ships;
+	}
+
 	ArrayList<Ship> ships = new ArrayList<Ship>();
 	
 	ArrayList<Player> players = new ArrayList<Player>();
@@ -59,21 +64,57 @@ public class Game {
 	
 	public void fillField(){
 		
-		makeShips(ONEDECK_SHIPS, ONE_DECK);
-		makeShips(TWODECK_SHIPS, TWO_DECK);
-		makeShips(THREEDECK_SHIPS, THREE_DECK);
-		makeShips(FOURDECK_SHIPS, FOUR_DECK);
+		makeClassOfShips(ONEDECK_SHIPS, ONE_DECK);
+		makeClassOfShips(TWODECK_SHIPS, TWO_DECK);
+		makeClassOfShips(THREEDECK_SHIPS, THREE_DECK);
+		makeClassOfShips(FOURDECK_SHIPS, FOUR_DECK);
 		
 		d.shipsAreReady();
 	}
 	
-	public void makeShips(int class, int decks){
-		for(int i=0; i<class; i++){
-		Ship s = new Ship(decks, new Random().nextInt(field.length), new Random().nextInt(field[1].length));
-		Cell c = new Cell("Deck");
-		field[s.decksList.get(0).getX()][s.decksList.get(0).getY()] = c.getShape();
+	public void makeClassOfShips(int classOfShip, int decks){
+		for(int i=0; i<classOfShip; i++){
+			Ship s = makeShipInBorder(decks);
+			while (checkForOverlay(s)){
+				s = makeShipInBorder(decks);
+			}
+			renderShip(s);
+
 			ships.add(s);
 		}
+	}
+
+	private void renderShip(Ship s) {
+		for(Deck d: s.decksList){
+			Cell c = new Cell("Deck");
+			field[d.getX()][d.getY()] = c.getShape();
+		}
+	}
+
+	private boolean checkForOverlay(Ship s) {
+		return false;
+	}
+
+	public void makeShipsManually(){
+
+	}
+
+	public Ship makeShipInBorder(int decks){
+		int xOfShip = generateRandom(field.length);
+		int yOfShip = generateRandom(field[1].length);
+		boolean vertical = new Random().nextBoolean();
+		if(vertical){
+			yOfShip = generateRandom(field[1].length - decks);
+		} else {
+			xOfShip = generateRandom((field.length - decks));
+		}
+		Ship s = new Ship(decks, xOfShip, yOfShip, vertical);
+		return s;
+	}
+
+	public int generateRandom(int b){
+		int r = new Random().nextInt(b);
+		return r;
 	}
 	
 	
@@ -109,7 +150,7 @@ public class Game {
 	
 	// Start
 	public static void main(String[] args){
-		Game g = new Game();
+		GameLogic g = new GameLogic();
 
 		g.salute();
 		Player playerOne = new Player();
@@ -118,6 +159,12 @@ public class Game {
 		g.printField(g.field);
 		g.fillField();
 		g.printField(g.field);
+		for(Ship i: g.getShips()){
+			System.out.println("Ship 1");
+			for(Deck d: i.decksList){
+				System.out.println(d.getX()+1 + " " + d.getY()+1);
+			}
+		};
 		g.shot();
 		g.printField(g.field);
 	}

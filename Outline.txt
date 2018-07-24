@@ -1,0 +1,8 @@
+C GameLogic
+
++ c ships
++
+
+- Salute
+- Name request
+-
