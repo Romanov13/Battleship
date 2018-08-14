@@ -1,118 +1,105 @@
-import java.util.*;
-import java.io.*;
+public class Deck {
+	private int x;
+	private int y;
+	boolean isHit = false;
+	int outlineCells = 0;
+	boolean xLeft;
+	boolean xRight;
+	boolean yUp;
+	boolean yDown;
 
-public class Display{
-String[] heading = {" A", " B", " C", " D", " E", " F", " G", " H", " I", " J"};
-public void salute(){
-System.out.println("Hello, sailor! What be yarrr name?");
-}
-public Scanner s = new Scanner(System.in);
- 
- public String getPlayerName(){
-  String playerName = s.nextLine();
-  return playerName;
- }
- 
- public void printField(Cell[][] field){
-  System.out.print(" " + "\t");
-		for(int h=0; h<heading.length; h++){
-		System.out.print(heading[h]);
+	Deck(int x, int y) {
+		this.x = x;
+		this.y = y;
+		if (x == 0) {
+			xLeft = true;
 		}
-		System.out.println();
-		for(int i=0; i<field.length; i++){
-			System.out.print(i+1 + "\t");
-			for(int j=0; j<field[i].length; j++){
-				printCell(field[i][j]);
+		if (x == 9) {
+			xRight = true;
+		}
+		if (y == 0) {
+			yUp = true;
+		}
+		if (y == 9) {
+			yDown = true;
+		}
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public String hit() {
+		isHit = true;
+		String status = "Hit";
+		return status;
+	}
+
+	public int[][] getOutline() {
+		int[][] cellOutline = new int[8][2];
+		int[] negative = new int[]{-1, -1};
+		if (xLeft) {
+			cellOutline[0] = negative;
+			cellOutline[3] = negative;
+			cellOutline[5] = negative;
+		}
+		if (xRight) {
+			cellOutline[2] = negative;
+			cellOutline[4] = negative;
+			cellOutline[7] = negative;
+		}
+		if (yUp) {
+			cellOutline[0] = negative;
+			cellOutline[1] = negative;
+			cellOutline[2] = negative;
+		}
+		if (yDown) {
+			cellOutline[5] = negative;
+			cellOutline[6] = negative;
+			cellOutline[7] = negative;
+		}
+		for (int i = 0; i < cellOutline.length; i++) {
+			if (cellOutline[i][0] != -1) {
+				switch (i) {
+					case 0:
+						cellOutline[i][0] = x - 1;
+						cellOutline[i][1] = y - 1;
+						break;
+					case 1:
+						cellOutline[i][0] = x;
+						cellOutline[i][1] = y - 1;
+						break;
+					case 2:
+						cellOutline[i][0] = x + 1;
+						cellOutline[i][1] = y - 1;
+						break;
+					case 3:
+						cellOutline[i][0] = x - 1;
+						cellOutline[i][1] = y;
+						break;
+					case 4:
+						cellOutline[i][0] = x + 1;
+						cellOutline[i][1] = y;
+						break;
+					case 5:
+						cellOutline[i][0] = x - 1;
+						cellOutline[i][1] = y + 1;
+						break;
+					case 6:
+						cellOutline[i][0] = x;
+						cellOutline[i][0] = y + 1;
+						break;
+					case 7:
+						cellOutline[i][0] = x + 1;
+						cellOutline[i][0] = y + 1;
+						break;
+				}
 			}
-			System.out.println("|");
- }
- }
-
- public void printField(Cell[][] field1, Cell[][] field2){
-     System.out.print(" " + "\t");
-     for(int h=0; h<heading.length; h++){
-         System.out.print(heading[h]);
-     }
-     System.out.print("\t");
-     for(int h=0; h<heading.length; h++){
-         System.out.print(heading[h]);
-     }
-     System.out.println();
-     for(int i=0; i<field1.length; i++){
-         int c = i+1;
-         System.out.print(c + "\t");
-         for(int j=0; j<field1[i].length; j++){
-             printCell(field1[i][j]);
-         }
-         System.out.print("|" + "\t" + c);
-         for(int j=0; j<field2[i].length; j++){
-             printCell(field2[i][j]);
-         }
-         System.out.println("|");
-
-     }
- }
-
-	private void printCell(Cell cell) {
-		switch (cell){
-			case DECK:
-				System.out.print("|p");
-				break;
-			case MISS:
-				System.out.print("|*");
-				break;
-			case EMPTY:
-				System.out.print("| ");
-				break;
-			case HIT:
-				System.out.print("|x");
-				break;
-            case OUTLINE:
-                System.out.print("|.");
-                break;
 		}
+		return cellOutline;
 	}
-
-
-	public void shipsAreReady(){
-		 System.out.println("Ships are ready!");
-	 }
-	 
-	 public void weHaveWinner(String name){
-		 System.out.println("The " + name + " is the last sailor swimming!");
-	 }
-
-	public void autoShoot() {
-		System.out.println("Auto shoot");
-	}
-
-    public String getYCoord(int y) {
-        String yCoord = String.valueOf(y+1);
-        return yCoord;
-    }
-
-    public String getXCoord(int x) {
-        String xCoord = String.valueOf(x);
-        xCoord = xCoord.replace("0", "a");
-        xCoord = xCoord.replace("1", "b");
-        xCoord = xCoord.replace("2", "c");
-        xCoord = xCoord.replace("3", "d");
-        xCoord = xCoord.replace("4", "e");
-        xCoord = xCoord.replace("5", "f");
-        xCoord = xCoord.replace("6", "g");
-        xCoord = xCoord.replace("7", "h");
-        xCoord = xCoord.replace("8", "i");
-        xCoord = xCoord.replace("9", "j");
-        return xCoord;
-    }
-
-    public boolean requestMode() {
-        System.out.println("Are playing alone? (y/n)");
-        boolean automode = true;
-        String r = s.nextLine();
-        if(r.equalsIgnoreCase("y")){
-            automode = true;
-        } else {automode = false;}
-        return automode;
-    }
 }
