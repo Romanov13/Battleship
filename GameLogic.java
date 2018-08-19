@@ -123,22 +123,22 @@ public class GameLogic {
 
 		g.printField(g.players.get(0).getField(), g.players.get(1).getField());
 		manual = false;
-		if (manual) {
-			playerOne.makeShipsManually();
-		} else {playerOne.fillField();
-		}
+		playerOne.fillField();
+		playerTwo.fillField();
+		g.shipsAreReady();
+		playerOne.renderAllShips();
+
 		g.printField(playerOne.getField(), playerTwo.getField());
-//		for(Ship i: g.getShips()){
-//			System.out.println("Ship 1");
-//			for(Deck d: i.getDecksList()){
-//				System.out.println(d.getX()+1 + " " + d.getY()+1);
-//			}
+
+//		for (int i = 0; i<4;i++) {
+//			g.autoShoot();
+//			g.printField(g.field, g.players.get(1).getField());
 //		}
-		for (int i = 0; i<4;i++) {
-			g.autoShoot();
-			g.printField(g.field, g.players.get(1).getField());
-		}
-		g.printField(g.field, g.players.get(1).getField());
+//		g.printField(g.field, g.players.get(1).getField());
+	}
+
+	private void shipsAreReady() {
+		d.shipsAreReady();
 	}
 
 	private void requestMode() {
