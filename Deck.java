@@ -66,35 +66,35 @@ public class Deck {
 			if (cellOutline[i][0] != -1) {
 				switch (i) {
 					case 0:
-						cellOutline[i][0] = x - 1;
-						cellOutline[i][1] = y - 1;
+						cellOutline[i][1] = x - 1;
+						cellOutline[i][0] = y - 1;
 						break;
 					case 1:
-						cellOutline[i][0] = x;
-						cellOutline[i][1] = y - 1;
+						cellOutline[i][1] = x;
+						cellOutline[i][0] = y - 1;
 						break;
 					case 2:
-						cellOutline[i][0] = x + 1;
-						cellOutline[i][1] = y - 1;
+						cellOutline[i][1] = x + 1;
+						cellOutline[i][0] = y - 1;
 						break;
 					case 3:
-						cellOutline[i][0] = x - 1;
-						cellOutline[i][1] = y;
+						cellOutline[i][1] = x - 1;
+						cellOutline[i][0] = y;
 						break;
 					case 4:
-						cellOutline[i][0] = x + 1;
-						cellOutline[i][1] = y;
+						cellOutline[i][1] = x + 1;
+						cellOutline[i][0] = y;
 						break;
 					case 5:
-						cellOutline[i][0] = x - 1;
-						cellOutline[i][1] = y + 1;
+						cellOutline[i][1] = x - 1;
+						cellOutline[i][0] = y + 1;
 						break;
 					case 6:
-						cellOutline[i][0] = x;
+						cellOutline[i][1] = x;
 						cellOutline[i][0] = y + 1;
 						break;
 					case 7:
-						cellOutline[i][0] = x + 1;
+						cellOutline[i][1] = x + 1;
 						cellOutline[i][0] = y + 1;
 						break;
 				}
