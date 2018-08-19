@@ -35,6 +35,7 @@ public class Display{
 			System.out.print(heading[h]);
 		}
 		System.out.print("\t");
+		System.out.print("\t");
 		for(int h=0; h<heading.length; h++){
 			System.out.print(heading[h]);
 		}
@@ -45,7 +46,7 @@ public class Display{
 			for(int j=0; j<field1[i].length; j++){
 				printCell(field1[i][j]);
 			}
-			System.out.print("|" + "\t" + c);
+			System.out.print("|" + "\t" + c + "\t");
 			for(int j=0; j<field2[i].length; j++){
 				printCell(field2[i][j]);
 			}
@@ -83,8 +84,8 @@ public class Display{
 		System.out.println("The " + name + " is the last sailor swimming!");
 	}
 
-	public void autoShoot() {
-		System.out.println("Auto shoot");
+	public void autoShoot(int x, int y) {
+		System.out.println("Auto shoot" + x + ", " + y);
 	}
 
 	public String getYCoord(int y) {
@@ -121,5 +122,50 @@ public class Display{
 		System.out.println("What be yarrr opponent's name?");
 		String playerName = s.nextLine();
 		return playerName;
+	}
+
+	public int [] shoot(String name){
+		int [] coordinates = new int [2];
+		System.out.println("Where to shoot, captain " + name + "?");
+		int[] sh = convertCoordinates();
+		while (!responseValid(sh)){
+			System.out.println("That doesn't sound right. Try one more time.");
+			sh = convertCoordinates();
+		}
+		System.out.println("Debug: " + sh[0] + ", " + sh[1]);
+//	  field[(Character.getNumericValue(shot.charAt(1))-1)][Character.getNumericValue(shot.charAt(0))] = c.getShape();
+		coordinates[0] = sh[1]- 1;
+		coordinates[1] = sh[0];
+		return coordinates;
+	}
+
+	private boolean responseValid(int[] sh) {
+		boolean res = true;
+		if(sh.length>2){
+			res = false;
+		}
+		return res;
+	}
+
+	private int[] convertCoordinates(){
+		String shot = s.nextLine();
+		shot = shot.replaceAll("[Aa]", "0");
+		shot = shot.replaceAll("[Bb]", "1");
+		shot = shot.replaceAll("[Cc]", "2");
+		shot = shot.replaceAll("[Dd]", "3");
+		shot = shot.replaceAll("[Ee]", "4");
+		shot = shot.replaceAll("[Ff]", "5");
+		shot = shot.replaceAll("[Gg]", "6");
+		shot = shot.replaceAll("[Hh]", "7");
+		shot = shot.replaceAll("[Ii]", "8");
+		shot = shot.replaceAll("[Jj]", "9");
+		char[] sh = shot.toCharArray();
+		int[] shi = new int[2];
+		shi [0] = Character.getNumericValue(sh[0]);
+		shi [1] = Character.getNumericValue(sh[1]);
+		if(sh.length==3){
+			shi[1] = 10;
+		}
+		return shi;
 	}
 }

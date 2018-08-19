@@ -102,4 +102,8 @@ public class Deck {
 		}
 		return cellOutline;
 	}
+
+	public void isHit() {
+		isHit = true;
+	}
 }

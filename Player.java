@@ -57,7 +57,13 @@ public class Player{
 		makeClassOfShips(TWODECK_SHIPS, TWO_DECK);
 		makeClassOfShips(ONEDECK_SHIPS, ONE_DECK);
 
+		for(Deck d: shps.get(0).getDecksList()){
+			System.out.println("Ship here " + d.getX() + ", " + d.getY());
+		}
+		for(Deck d: shps.get(9).getDecksList()){
+			System.out.println("1 Ship here " + d.getX() + ", " + d.getY());
 
+		}
 	}
 
 	private void makeClassOfShips(int classOfShip, int decks){
@@ -76,7 +82,9 @@ public class Player{
 	// move to Players class?
 	 void renderShip(Ship s) {
 		for(Deck d: s.getDecksList()){
-			field[d.getY()][d.getX()] = Cell.DECK;
+			if(!(field[d.getY()][d.getX()] == Cell.HIT)) {
+				field[d.getY()][d.getX()] = Cell.DECK;
+			}
 		}
 		for(int[] i: s.getOutline()){
 			field[i[0]][i[1]]= Cell.OUTLINE;
@@ -256,6 +264,43 @@ public class Player{
 
 	public void setKillCount(int killCount) {
 		this.killCount = killCount;
+	}
+
+	public int[] shoot() {
+		int [] toShoot;
+		toShoot = d.shoot(getName());
+		return toShoot;
+
+	}
+
+	public int[] autoShoot(){
+		int [] toShoot = new int [2];
+		toShoot[0] = generateRandom(field.length);
+		toShoot[1] = generateRandom(field.length);
+		d.autoShoot(toShoot[1], toShoot[0]);
+		return toShoot;
+	}
+
+	public boolean shotAt(int[] shoot) {
+		boolean shotAt = false;
+		for(Ship s: shps){
+			for(Deck d: s.getDecksList()){
+				if((d.getX() == shoot[1])&&(d.getY() == shoot[0])){
+					field[d.getY()][d.getX()] = Cell.HIT;
+					d.isHit();
+					s.isHit();
+					if(s.isSunk()){
+						renderShip(s);
+					}
+					shotAt = true;
+					break;
+				} else {
+					field[shoot[0]][shoot[1]] = Cell.MISS;
+					shotAt = false;
+				}
+			}
+		}
+		return shotAt;
 	}
 }
 

@@ -63,11 +63,20 @@ public class Ship{
     }
 
     public void isHit(){
-        isHit = true;
+        boolean sunk = true;
+        for (Deck d: getDecksList()){
+            if(!d.isHit){
+                sunk = false;
+                break;
+            }
+        }
+        if(sunk){
+            isSunk = true;
+        }
     }
 
-    public void isSunk(){
-        isSunk = true;
+    public boolean isSunk(){
+        return isSunk;
     }
 
     public void outline(){

@@ -3,12 +3,14 @@ import java.util.*;import java.util.*;
 public class GameLogic {
 
 	private static boolean manual;
+	private static boolean endGame = false;
 	private final int CLASSES = 4;
 	private final int SHIPS = 10;
 	private final int NUM_OF_PLAYERS = 2;
+	private final int FIELD_LENGTH = 10;
+	static int turn = 0;
 
 
-	private Cell[][] field = new Cell[10][10];
 	private boolean automode;
 
 
@@ -25,6 +27,8 @@ public class GameLogic {
 
 
 	private Cell[][] createField(){
+		Cell[][] field = new Cell[FIELD_LENGTH][FIELD_LENGTH];
+
 		for(int i=0; i<field.length; i++){
 
 			for(int j=0; j<field[i].length; j++){
@@ -84,14 +88,19 @@ public class GameLogic {
 		return new Random().nextInt(b);
 	}
 
-	private  void autoShoot(){
-		d.autoShoot();
-		int xToShoot = generateRandom(field.length);
-		int yToShoot = generateRandom(field[xToShoot].length);
-		if(field[xToShoot][yToShoot]==Cell.DECK){
-			field[xToShoot][yToShoot] = Cell.HIT;
-		} else {field[yToShoot][xToShoot] = Cell.MISS;}
-		System.out.println("shot at :" + d.getXCoord(xToShoot) + ", " + d.getYCoord(yToShoot));
+	private  boolean shoot(){
+		boolean shotAt = false;
+		if(turn % 2 != 0){
+			shotAt = players.get(1).shotAt(players.get(0).shoot());
+		} else {
+			if (automode) {
+				shotAt = players.get(0).shotAt(players.get(1).autoShoot());
+			} else {
+				shotAt = players.get(0).shotAt(players.get(1).autoShoot());
+			}
+		}
+		printField(players.get(0).getField(), players.get(1).getField());
+		return shotAt;
 	}
 
 	private void salute(){
@@ -108,27 +117,33 @@ public class GameLogic {
 		GameLogic g = new GameLogic();
 
 		g.salute();
-		Player playerOne = new Player();
-		playerOne.setName(g.getPlayerName());
-		g.players.add(playerOne);
+		g.players.add(new Player());
+		g.players.get(0).setName(g.getPlayerName());
 		g.requestMode();
-		Player playerTwo = new Player();
+		g.players.add(new Player());
 		if(!g.automode){
-			playerTwo.setName(g.getPlayerName());}
-		else {playerTwo.setName("Computer");}
-		g.players.add(playerTwo);
+			g.players.get(1).setName(g.getPlayerName());}
+		else {g.players.get(1).setName("Computer");}
 		g.players.get(0).setPlayerField(g.createField());
 		g.players.get(1).setPlayerField(g.createField());
 
 
 		g.printField(g.players.get(0).getField(), g.players.get(1).getField());
 		manual = false;
-		playerOne.fillField();
-		playerTwo.fillField();
+		g.players.get(0).fillField();
+		g.players.get(1).fillField();
 		g.shipsAreReady();
-		playerOne.renderAllShips();
+		g.players.get(0).renderAllShips();
 
-		g.printField(playerOne.getField(), playerTwo.getField());
+		g.printField(g.players.get(0).getField(), g.players.get(1).getField());
+		System.out.println(g.players.get(0).getName() + ", " + g.players.get(1).getName());
+		turn = 1;
+		while (!endGame){
+			while (g.shoot()){
+
+			}
+			turn++;
+		}
 
 //		for (int i = 0; i<4;i++) {
 //			g.autoShoot();
@@ -148,7 +163,7 @@ public class GameLogic {
 
 	private String getPlayerName() {
 
-		if(players.size()==1){
+		if(players.size()>1){
 			return d.getAnotherPlayerName();
 		}
 		return d.getPlayerName();
