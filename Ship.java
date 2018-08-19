@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Ship{
 
@@ -33,18 +34,23 @@ public class Ship{
         decksCoordinates [0][1] = x;
         decksCoordinates [0][0] = y;
 
+
         if (decks > 1) {
             if (vertical) {
                 for (int i = 1; i < decks; i++) {
-                    decksList.add(new Deck(x, y + i));
-                    decksCoordinates[i][1] = x;
-                    decksCoordinates [i][0] = y;
+                    Deck dk = new Deck(x, y+i);
+                    decksList.add(dk);
+                    decksCoordinates[i][1] = dk.getX();
+                    decksCoordinates [i][0] = dk.getY();
+
                 }
             } else {
                 for (int i = 1; i < decks; i++) {
-                    decksList.add(new Deck(x + i, y));
+                    Deck dk = new Deck(x+i, y);
+                    decksList.add(dk);
                     decksCoordinates[i][1] = x;
                     decksCoordinates [i][0] = y;
+
                 }
             }
         }
@@ -68,24 +74,26 @@ public class Ship{
         for(Deck d: getDecksList()){
             int [][] deckOutline = d.getOutline();
             for(int i=0; i<deckOutline.length; i++){
-                if(deckOutline[i][0]!= -1){
+                if((deckOutline[i][0]!= -1)&(!shipOverOutline(deckOutline[i]))){
                     outline.add(deckOutline[i]);
-
                 }
             }
 
         }
-        for(int i = 0; i<decksCoordinates.length; i++){
-            int [] coordinates = decksCoordinates[i];
-            for(int j = 0; j<outline.size(); j++){
-                if(outline.get(j).equals(coordinates)){
-                    outline.remove(j);
-                }
-            }
-        }
+
 
     }
 
+    private boolean shipOverOutline(int [] outlineToCheck) { // checks if outline cell is in place of the deck of the same ship
+        boolean shipOver = false;
+        for(Deck d: getDecksList()){
+            if((d.getY()==outlineToCheck[0])&&(d.getX() == outlineToCheck[1])){
+                shipOver = true;
+                break;
+            }
+        }
+        return shipOver;
+    }
 
 
 }
