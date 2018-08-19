@@ -147,6 +147,10 @@ public class GameLogic {
 	}
 
 	private String getPlayerName() {
+
+		if(players.size()==1){
+			return d.getAnotherPlayerName();
+		}
 		return d.getPlayerName();
 	}
 }

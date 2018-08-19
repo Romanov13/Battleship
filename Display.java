@@ -4,11 +4,12 @@ import java.io.*;
 public class Display{
 	String[] heading = {" A", " B", " C", " D", " E", " F", " G", " H", " I", " J"};
 	public void salute(){
-		System.out.println("Hello, sailor! What be yarrr name?");
+		System.out.println("Hello, sailor!");
 	}
 	public Scanner s = new Scanner(System.in);
 
 	public String getPlayerName(){
+		System.out.println("What be yarrr name?");
 		String playerName = s.nextLine();
 		return playerName;
 	}
@@ -114,5 +115,11 @@ public class Display{
 			automode = true;
 		} else {automode = false;}
 		return automode;
+	}
+
+	public String getAnotherPlayerName() {
+		System.out.println("What be yarrr opponent's name?");
+		String playerName = s.nextLine();
+		return playerName;
 	}
 }
