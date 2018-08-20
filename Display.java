@@ -132,7 +132,7 @@ public class Display{
 			System.out.println("That doesn't sound right. Try one more time.");
 			sh = convertCoordinates();
 		}
-		System.out.println("Debug: " + sh[0] + ", " + sh[1]);
+		System.out.println("Debug: " + sh[0] + ", " + (sh[1]-1));
 //	  field[(Character.getNumericValue(shot.charAt(1))-1)][Character.getNumericValue(shot.charAt(0))] = c.getShape();
 		coordinates[0] = sh[1]- 1;
 		coordinates[1] = sh[0];

@@ -87,6 +87,7 @@ public class Player{
 			}
 		}
 		for(int[] i: s.getOutline()){
+			if(field[i[0]][i[1]]!= Cell.MISS)
 			field[i[0]][i[1]]= Cell.OUTLINE;
 		}
 	}
@@ -281,7 +282,7 @@ public class Player{
 		return toShoot;
 	}
 
-	public boolean shotAt(int[] shoot) {
+	public boolean shotAt(int[] shoot) { // the issue is it checks for next ship after successfull check, need to break it out of the look when shotAt is true
 		boolean shotAt = false;
 		for(Ship s: shps){
 			for(Deck d: s.getDecksList()){
@@ -293,13 +294,13 @@ public class Player{
 						renderShip(s);
 					}
 					shotAt = true;
-					break;
-				} else {
-					field[shoot[0]][shoot[1]] = Cell.MISS;
-					shotAt = false;
+
 				}
 			}
 		}
+	if(!shotAt){
+		field[shoot[0]][shoot[1]] = Cell.MISS;
+	}
 		return shotAt;
 	}
 }

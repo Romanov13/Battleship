@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5f47da8-36a5-462e-a566-c9019544831d" name="Default" comment="finished filling the field, deleted test info, Player class">
+    <list default="true" id="d5f47da8-36a5-462e-a566-c9019544831d" name="Default" comment="autofill works and shooting system almost done. enemy field does not reflect hit for some reason">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/GameLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ship.java" beforeDir="false" afterPath="$PROJECT_DIR$/Ship.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Battleship/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Battleship/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Battleship/Display$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Battleship/Display$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Battleship/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Battleship/Deck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Battleship/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Battleship/Display.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Battleship/GameLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Battleship/GameLogic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Battleship/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Battleship/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Battleship/Ship.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Battleship/Ship.class" afterDir="false" />
     </list>
     <list id="496e1ccb-2cd1-45db-80b2-09c4bde10d2f" name="Each deck returns its outline" comment="" />
     <list id="aabffc06-92ed-4a53-b299-0d9721a789bf" name="update" comment="" />
@@ -28,27 +23,27 @@
     <session id="-1796360699">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.14" value="4" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.19" value="3" />
           <entry key="project.open.time.20" value="1" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="8558" />
-          <entry key="txt" value="304" />
+          <entry key="java" value="8781" />
+          <entry key="txt" value="414" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8558" />
-          <entry key="PLAIN_TEXT" value="304" />
+          <entry key="JAVA" value="8781" />
+          <entry key="PLAIN_TEXT" value="414" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -80,15 +75,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GameLogic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
+            <state relative-caret-position="2159">
               <caret line="135" selection-start-line="135" selection-end-line="135" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#440#448#0" expanded="true" />
-                <element signature="e#2373#2374#0" expanded="true" />
-                <element signature="e#2420#2421#0" expanded="true" />
-                <element signature="e#3548#3549#0" expanded="true" />
-                <element signature="e#3572#3573#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,8 +87,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="182" column="67" lean-forward="true" selection-start-line="182" selection-start-column="67" selection-end-line="182" selection-end-column="67" />
+            <state relative-caret-position="154">
+              <caret line="89" column="44" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3035#3036#0" expanded="true" />
@@ -133,7 +123,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Ship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="1122">
               <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -141,8 +131,6 @@
                 <element signature="e#290#291#0" expanded="true" />
                 <element signature="e#334#335#0" expanded="true" />
                 <element signature="e#364#365#0" expanded="true" />
-                <element signature="e#1557#1558#0" expanded="true" />
-                <element signature="e#1585#1586#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -151,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Display.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+            <state relative-caret-position="59">
+              <caret line="134" column="65" selection-start-line="134" selection-start-column="65" selection-end-line="134" selection-end-column="65" />
               <folding>
                 <element signature="e#164#165#0" expanded="true" />
                 <element signature="e#207#208#0" expanded="true" />
@@ -164,7 +152,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Deck.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
+            <state relative-caret-position="1717">
               <caret line="106" column="21" selection-start-line="106" selection-start-column="21" selection-end-line="106" selection-end-column="21" />
               <folding>
                 <element signature="e#383#384#0" expanded="true" />
@@ -222,8 +210,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,7 +226,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,15 +438,22 @@
       <option name="project" value="LOCAL" />
       <updated>1534697962597</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="autofill works and shooting system almost done. enemy field does not reflect hit for some reason">
+      <created>1534706224444</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1534706224444</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.11111111" visible="true" weight="0.31578946" />
-      <window_info id="Structure" order="1" sideWeight="0.8888889" side_tool="true" visible="true" weight="0.31578946" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.10779436" visible="true" weight="0.32712552" />
+      <window_info id="Structure" order="1" sideWeight="0.89220566" side_tool="true" visible="true" weight="0.32712552" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -466,14 +461,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289256" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959514" weight="0.66169155" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49959514" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3283582" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50040483" side_tool="true" weight="0.32006633" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3283582" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3283582" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3283582" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -543,7 +538,8 @@
     <MESSAGE value="finished filling the field, deleted test info, ready to CP" />
     <MESSAGE value="finished filling the field, deleted test info, Player class" />
     <MESSAGE value="separate request for second player" />
-    <option name="LAST_COMMIT_MESSAGE" value="separate request for second player" />
+    <MESSAGE value="autofill works and shooting system almost done. enemy field does not reflect hit for some reason" />
+    <option name="LAST_COMMIT_MESSAGE" value="autofill works and shooting system almost done. enemy field does not reflect hit for some reason" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/Outline.txt" />
@@ -553,6 +549,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
           <caret line="304" column="19" selection-start-line="304" selection-start-column="19" selection-end-line="304" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GameLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2159">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -570,9 +576,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Ship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1122">
+          <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#258#259#0" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#364#365#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Deck.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
+        <state relative-caret-position="1717">
           <caret line="106" column="21" selection-start-line="106" selection-start-column="21" selection-end-line="106" selection-end-column="21" />
           <folding>
             <element signature="e#383#384#0" expanded="true" />
@@ -585,41 +605,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Ship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#258#259#0" expanded="true" />
-            <element signature="e#290#291#0" expanded="true" />
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#1557#1558#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GameLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="135" selection-start-line="135" selection-end-line="135" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#440#448#0" expanded="true" />
-            <element signature="e#2373#2374#0" expanded="true" />
-            <element signature="e#2420#2421#0" expanded="true" />
-            <element signature="e#3548#3549#0" expanded="true" />
-            <element signature="e#3572#3573#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Display.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
+        <state relative-caret-position="59">
+          <caret line="134" column="65" selection-start-line="134" selection-start-column="65" selection-end-line="134" selection-end-column="65" />
           <folding>
             <element signature="e#164#165#0" expanded="true" />
             <element signature="e#207#208#0" expanded="true" />
@@ -629,8 +618,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="182" column="67" lean-forward="true" selection-start-line="182" selection-start-column="67" selection-end-line="182" selection-end-column="67" />
+        <state relative-caret-position="154">
+          <caret line="89" column="44" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3035#3036#0" expanded="true" />
