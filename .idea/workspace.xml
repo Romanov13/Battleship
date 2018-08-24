@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5f47da8-36a5-462e-a566-c9019544831d" name="Default" comment="autofill works and shooting system almost done. enemy field does not reflect hit for some reason">
+    <list default="true" id="d5f47da8-36a5-462e-a566-c9019544831d" name="Default" comment="render fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Battleship/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Battleship/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Battleship/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Battleship/Deck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Battleship/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Battleship/Display.class" afterDir="false" />
@@ -23,7 +21,7 @@
     <session id="-1796360699">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="4" />
@@ -37,13 +35,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="8781" />
-          <entry key="txt" value="414" />
+          <entry key="txt" value="426" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="8781" />
-          <entry key="PLAIN_TEXT" value="414" />
+          <entry key="PLAIN_TEXT" value="426" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -87,7 +85,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
+            <state relative-caret-position="2">
               <caret line="89" column="44" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -445,12 +443,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534706224444</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="render fixed">
+      <created>1534804755253</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1534804755253</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.10779436" visible="true" weight="0.32712552" />
       <window_info id="Structure" order="1" sideWeight="0.89220566" side_tool="true" visible="true" weight="0.32712552" />
@@ -461,7 +465,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289256" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49959514" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959514" weight="0.33996683" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -539,7 +543,8 @@
     <MESSAGE value="finished filling the field, deleted test info, Player class" />
     <MESSAGE value="separate request for second player" />
     <MESSAGE value="autofill works and shooting system almost done. enemy field does not reflect hit for some reason" />
-    <option name="LAST_COMMIT_MESSAGE" value="autofill works and shooting system almost done. enemy field does not reflect hit for some reason" />
+    <MESSAGE value="render fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="render fixed" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/Outline.txt" />
@@ -618,7 +623,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
+        <state relative-caret-position="2">
           <caret line="89" column="44" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
